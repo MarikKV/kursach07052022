@@ -1,0 +1,24 @@
+<div class="myorders">
+    <h1 class="text-center">My orders</h1>
+
+    <div class="d-flex flex-wrap justify-content-around mt-5" v-if="$root.orderedProducts.length > 0">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">№</th>
+            <th scope="col">Products</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(product, idx) in $root.orderedProducts" class="text-center">
+            <th scope="row">{{ idx + 1 }}</th>
+            <th scope="row">{{ idx + 1 }}</th>
+            <th scope="row">{{ idx + 1 }}</th>
+            <th scope="row">{{ idx + 1 }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

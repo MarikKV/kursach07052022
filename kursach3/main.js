@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', async function(){
     let orderProducts    = await axios.get("templates/orderProducts.html");
     let cart             = await axios.get("templates/cart.html");
     let orderProductCard = await axios.get("templates/orderProductCard.html");
+    let myOrders         = await axios.get("templates/myOrders.html");
+    let myOrdеrsAdmin    = await axios.get("templates/myOrdеrsAdmin.html");
 
     //Основна інформація для spa (сайту)
     const data =  {
@@ -357,6 +359,26 @@ document.addEventListener('DOMContentLoaded', async function(){
         }
     }
 
+    const MyOrdеrs = {
+        template: myOrders.data,
+        methods: {
+         
+        },
+        mounted: function(){
+            //що відбувається при першому показі
+        }
+    }
+
+    const MyOrdеrsAdmin = {
+        template: myOrdеrsAdmin.data,
+        methods: {
+         
+        },
+        mounted: function(){
+            //що відбувається при першому показі
+        }
+    }
+
     //Роути (які копоненти відображати)
     const routes = {
         '/': Home,
@@ -366,6 +388,8 @@ document.addEventListener('DOMContentLoaded', async function(){
         '/allproducts': AllProducts,
         '/products': OrderProducts,
         '/cart': Cart,
+        '/my-orders': MyOrdеrs,
+        '/my-orders-admin': MyOrdеrsAdmin
     }
 
     const app = {
