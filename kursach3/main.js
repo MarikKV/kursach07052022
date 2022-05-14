@@ -362,10 +362,26 @@ document.addEventListener('DOMContentLoaded', async function(){
     const MyOrdеrs = {
         template: myOrders.data,
         methods: {
-         
+            getMyOrders(){
+                const userEmail = data.user?.email || JSON.parse(localStorage.getItem("user"))?.email;
+                console.log(userEmail)
+                db.collection("orders")
+                .where("user.email", "==", userEmail)
+                .get()
+                .then( res => {
+                    res.forEach(e => {
+                        const order = {
+                            id: e.id,
+                            ...e.data()
+                        }
+                        console.log(order)
+                    })
+                })
+            }
         },
         mounted: function(){
             //що відбувається при першому показі
+            this.getMyOrders();
         }
     }
 
